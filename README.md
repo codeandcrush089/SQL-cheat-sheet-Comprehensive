@@ -54,6 +54,7 @@ They allow users to **insert new records, retrieve existing data, update informa
 
 | No | Command  | Description  | Syntax | Example  |
 |----|----------|--------------|--------|----------|
-| 1 | SELECT | The **SELECT** command retrieves data from a database. | SELECT column1, column2 FROM table_name; | SELECT first_name, last_name FROM customers; |
-| 2 | INSERT  |The INSERT command adds new records to a table. | INSERT INTO table_name (column1, column2) VALUES (value1, value2); | INSERT INTO customers (first_name, last_name) VALUES ('Mary', 'Doe'); |
-| 3 | C | What is Foreign Key? | Microsoft |
+| 1 | SELECT | The SELECT command retrieves data from a database. | `SELECT column1, column2 FROM table_name;` | `SELECT first_name, last_name FROM customers;` |
+| 2 | INSERT  |The INSERT command adds new records to a table. | `INSERT INTO table_name (column1, column2) VALUES (value1, value2);` |` INSERT INTO customers (first_name, last_name) VALUES ('Mary', 'Doe');` |
+| 3 | UPDATE | The UPDATE command is used to modify existing records in a table. | `UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;` | `UPDATE employees SET employee_name = ‘John Doe’, department = ‘Marketing’; `|
+
