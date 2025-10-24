@@ -162,9 +162,8 @@ They are commonly used with the `GROUP BY` clause to analyze data in groups or c
 > 💡 In short: Aggregate functions help you **summarize data** — for example, counting total rows, finding averages, or getting minimum/maximum values.
 
 
-###  **Aggregate Function Commands**
 
-|  No | Function    | Description                                                              | Syntax                                       | Example                                     |
+|  No |Command    | Description                                                              | Syntax                                       | Example                                     |
 | :-: | :---------- | :----------------------------------------------------------------------- | :------------------------------------------- | :------------------------------------------ |
 |  1  | **COUNT()** | Counts the total number of rows or non-null values in a specific column. | `SELECT COUNT(column_name) FROM table_name;` | `sql<br>SELECT COUNT(age) FROM employees;`  |
 |  2  | **SUM()**   | Calculates the total (sum) of all numeric values in a column.            | `SELECT SUM(column_name) FROM table_name;`   | `sql<br>SELECT SUM(salary) FROM employees;` |
@@ -182,7 +181,7 @@ They are commonly used with the `GROUP BY` clause to analyze data in groups or c
 
 ---
 
-##  **String Functions in SQL**
+## ✨ **String Functions in SQL**
 
 **String functions** are used to **manipulate and transform text data** in SQL.
 They help in cleaning, formatting, and extracting parts of strings — which is especially useful for data analysis and reporting.
@@ -190,18 +189,20 @@ They help in cleaning, formatting, and extracting parts of strings — which is 
 > 💡 In short: String functions make it easy to **combine, format, or modify text** stored in database columns.
 
 
-|  No | Function                     | Description                                                                          | Syntax                                                  | Example                                                                           |                             |                                                                             |
-| :-: | :--------------------------- | :----------------------------------------------------------------------------------- | :------------------------------------------------------ | :-------------------------------------------------------------------------------- | --------------------------- | --------------------------------------------------------------------------- |
-|  1  | **CONCAT()**                 | Joins two or more strings into a single string.                                      | `SELECT CONCAT(string1, string2, ...);`                 | `sql<br>SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM employees;`   |                             |                                                                             |
-|  2  | **SUBSTRING() / SUBSTR()**   | Extracts a portion of a string starting from a given position (and optional length). | `SELECT SUBSTRING(string FROM start [FOR length]);`     | `sql<br>SELECT SUBSTRING(product_name FROM 1 FOR 5) AS short_name FROM products;` |                             |                                                                             |
-|  3  | **CHAR_LENGTH() / LENGTH()** | Returns the number of characters in a string.                                        | `SELECT CHAR_LENGTH(string) AS length;`                 | `sql<br>SELECT CHAR_LENGTH(product_name) AS name_length FROM products;`           |                             |                                                                             |
-|  4  | **UPPER()**                  | Converts all characters in a string to uppercase.                                    | `SELECT UPPER(string);`                                 | `sql<br>SELECT UPPER(first_name) AS upper_name FROM employees;`                   |                             |                                                                             |
-|  5  | **LOWER()**                  | Converts all characters in a string to lowercase.                                    | `SELECT LOWER(string);`                                 | `sql<br>SELECT LOWER(last_name) AS lower_name FROM employees;`                    |                             |                                                                             |
-|  6  | **TRIM()**                   | Removes spaces or specified characters from the beginning or end of a string.        | `SELECT TRIM([LEADING                                   | TRAILING                                                                          | BOTH] 'char' FROM string);` | `sql<br>SELECT TRIM(BOTH ' ' FROM full_name) AS clean_name FROM customers;` |
-|  7  | **LEFT()**                   | Returns a specified number of characters from the **left** side of a string.         | `SELECT LEFT(string, number);`                          | `sql<br>SELECT LEFT(product_name, 4) AS prefix FROM products;`                    |                             |                                                                             |
-|  8  | **RIGHT()**                  | Returns a specified number of characters from the **right** side of a string.        | `SELECT RIGHT(string, number);`                         | `sql<br>SELECT RIGHT(order_id, 3) AS suffix FROM orders;`                         |                             |                                                                             |
-|  9  | **REPLACE()**                | Replaces all occurrences of a substring with a new substring.                        | `SELECT REPLACE(string, old_substring, new_substring);` | `sql<br>SELECT REPLACE(description, 'old', 'new') AS updated_desc FROM products;` |                             |                                                                             |
-
+| No | Command | Description | Syntax | Example |
+| :-: | :--- | :--- | :--- | :--- |
+| 1 | **CONCAT()** | Joins two or more strings into a single string. | `SELECT CONCAT(string1, string2, ...);` | `SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM employees;` |
+| 2 | **SUBSTRING() / SUBSTR()** | Extracts a portion of a string starting from a given position (and optional length). | `SELECT SUBSTRING(string FROM start [FOR length]);` | `SELECT SUBSTRING(product_name FROM 1 FOR 5) AS short_name FROM products;` |
+| 3 | **CHAR_LENGTH() / LENGTH()** | Returns the number of characters in a string. | `SELECT CHAR_LENGTH(string) AS length;` | `SELECT CHAR_LENGTH(product_name) AS name_length FROM products;` |
+| 4 | **UPPER()** | Converts all characters in a string to uppercase. | `SELECT UPPER(string);` | `SELECT UPPER(first_name) AS upper_name FROM employees;` |
+| 5 | **LOWER()** | Converts all characters in a string to lowercase. | `SELECT LOWER(string);` | `SELECT LOWER(last_name) AS lower_name FROM employees;` |
+| 6 | **TRIM()** | Removes spaces or specified characters from the beginning or end of a string. | `SELECT TRIM([LEADING \| TRAILING \| BOTH] 'char' FROM string);` | `SELECT TRIM(BOTH ' ' FROM full_name) AS clean_name FROM customers;` |
+| 7 | **LEFT()** | Returns a specified number of characters from the **left** side of a string. | `SELECT LEFT(string, number);` | `SELECT LEFT(product_name, 4) AS prefix FROM products;` |
+| 8 | **RIGHT()** | Returns a specified number of characters from the **right** side of a string. | `SELECT RIGHT(string, number);` | `SELECT RIGHT(order_id, 3) AS suffix FROM orders;` |
+| 9 | **REPLACE()** | Replaces all occurrences of a substring with a new substring. | `SELECT REPLACE(string, old_substring, new_substring);` | `SELECT REPLACE(description, 'old', 'new') AS updated_desc FROM products;` |
+| 10 | **POSITION() / INSTR()** | Finds the starting position of a substring within a string. | `SELECT POSITION('substring' IN string);` | `SELECT POSITION('@' IN email) AS at_sign_position FROM users;` |
+| 11 | **LPAD() / RPAD()** | Left or Right pads a string with a specified character up to a certain length. | `SELECT LPAD(string, length, 'pad_char');` | `SELECT RPAD(id, 5, '0') AS padded_id FROM orders;` |
+---
 
 ### 🧠 **Notes:**
 
@@ -221,7 +222,7 @@ They allow you to retrieve the current date/time, extract specific parts (like y
 
 
 
-|  No | Function                    | Description                                                                             | Syntax                                                                                         | Example                                                                                 |
+|  No | Command                   | Description                                                                             | Syntax                                                                                         | Example                                                                                 |
 | :-: | :-------------------------- | :-------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------- |
 |  1  | **CURRENT_DATE()**          | Returns the current system date.                                                        | `SELECT CURRENT_DATE();`                                                                       | `sql<br>SELECT CURRENT_DATE() AS today_date;`                                           |
 |  2  | **CURRENT_TIME()**          | Returns the current system time.                                                        | `SELECT CURRENT_TIME();`                                                                       | `sql<br>SELECT CURRENT_TIME() AS current_time;`                                         |
@@ -252,7 +253,7 @@ They allow you to add **decision-making capability** — for example, returning 
 
 
 
-|  No | Expression     | Description                                                                                                   | Syntax                                                                                                         | Example                                                                                                                                                                                                    |
+|  No |Command     | Description                                                                                                   | Syntax                                                                                                         | Example                                                                                                                                                                                                    |
 | :-: | :------------- | :------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |  1  | **CASE**       | Evaluates multiple conditions and returns a value when the first condition is true. Works like IF–ELSE logic. | `sql<br>CASE<br> WHEN condition1 THEN result1<br> WHEN condition2 THEN result2<br> ELSE default_result<br>END` | `sql<br>SELECT order_id, total_amount,<br>CASE<br> WHEN total_amount > 1000 THEN 'High Value'<br> WHEN total_amount > 500 THEN 'Medium Value'<br> ELSE 'Low Value'<br>END AS order_status<br>FROM orders;` |
 |  2  | **IF()**       | Checks a condition and returns one value if true, another if false. (Mostly used in MySQL.)                   | `SELECT IF(condition, true_value, false_value);`                                                               | `sql<br>SELECT name, age, IF(age > 50, 'Senior', 'Junior') AS category FROM employees;`                                                                                                                    |
@@ -296,13 +297,13 @@ They help compare or merge data from multiple queries, just like mathematical se
 ---
 ## Transaction Control Commands
 
-| Command                   | Description                                                                                             | Syntax                                     | Example                                                                                                                                                                          |
-| ------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **COMMIT**                | Saves all changes made in the current transaction permanently to the database.                          | `COMMIT;`                                  | `sql BEGIN; UPDATE accounts SET balance = balance - 100 WHERE acc_id = 1; COMMIT;`                                                                                               |
-| **ROLLBACK**              | Undoes all changes made in the current transaction, reverting the database to the last committed state. | `ROLLBACK;`                                | `sql BEGIN; DELETE FROM employees WHERE emp_id = 10; ROLLBACK;`                                                                                                                  |
-| **SAVEPOINT**             | Creates a point within a transaction to which you can later roll back. Useful for partial rollbacks.    | `SAVEPOINT savepoint_name;`                | `sql BEGIN; UPDATE accounts SET balance = balance - 100 WHERE acc_id = 1; SAVEPOINT sp1; UPDATE accounts SET balance = balance + 100 WHERE acc_id = 2; ROLLBACK TO sp1; COMMIT;` |
-| **ROLLBACK TO SAVEPOINT** | Rolls back the transaction to a specific savepoint without affecting prior operations.                  | `ROLLBACK TO savepoint_name;`              | `sql ROLLBACK TO sp1;`                                                                                                                                                           |
-| **SET TRANSACTION**       | Sets the properties of the transaction like isolation level.                                            | `SET TRANSACTION [ISOLATION LEVEL level];` | `sql SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;`                                                                                                                              |
+| No | Command                   | Description                                                                                             | Syntax                                     | Example                                                                                                                                                                          |
+|--| ------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|1| **COMMIT**                | Saves all changes made in the current transaction permanently to the database.                          | `COMMIT;`                                  | `sql BEGIN; UPDATE accounts SET balance = balance - 100 WHERE acc_id = 1; COMMIT;`                                                                                               |
+|2| **ROLLBACK**              | Undoes all changes made in the current transaction, reverting the database to the last committed state. | `ROLLBACK;`                                | `sql BEGIN; DELETE FROM employees WHERE emp_id = 10; ROLLBACK;`                                                                                                                  |
+|3| **SAVEPOINT**             | Creates a point within a transaction to which you can later roll back. Useful for partial rollbacks.    | `SAVEPOINT savepoint_name;`                | `sql BEGIN; UPDATE accounts SET balance = balance - 100 WHERE acc_id = 1; SAVEPOINT sp1; UPDATE accounts SET balance = balance + 100 WHERE acc_id = 2; ROLLBACK TO sp1; COMMIT;` |
+|4| **ROLLBACK TO SAVEPOINT** | Rolls back the transaction to a specific savepoint without affecting prior operations.                  | `ROLLBACK TO savepoint_name;`              | `sql ROLLBACK TO sp1;`                                                                                                                                                           |
+|5| **SET TRANSACTION**       | Sets the properties of the transaction like isolation level.                                            | `SET TRANSACTION [ISOLATION LEVEL level];` | `sql SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;`                                                                                                                              |
 
 ### 🧠 **Notes:**
 
